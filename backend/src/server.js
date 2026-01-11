@@ -1,10 +1,21 @@
 import express from "express";
 import { ENV } from "./lib/env.js";
 import path from "path";
+import cors from "cors";
+import serve from "inngest/express"
 import { connectDB } from "./lib/db.js";
 const __dirname = path.resolve();
 
 const app = express();
+// middle wares
+app.use(express.json())
+// cross origin request handling
+app.use(cors({origin:ENV.CLIENT_URL, credentials: true}))
+
+// inngest connect clerk to mongodb so that we can delete and create user 
+app.use("/api/inngest", serve({client: inngest}))
+
+
 app.get('/', (req, res) => {
     res.status(200).json({ msg: "success from api" });
 
