@@ -2,7 +2,7 @@ import express from "express";
 import { ENV } from "./lib/env.js";
 import path from "path";
 import cors from "cors";
-import serve from "inngest/express"
+import {serve} from "inngest/express"
 import {inngest, functions} from "./lib/inngest.js"
 import { connectDB } from "./lib/db.js";
 const __dirname = path.resolve();
