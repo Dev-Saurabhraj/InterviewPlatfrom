@@ -1,4 +1,4 @@
-import { ENV } from "./env";
+import { ENV } from "./env.js";
 import {StreamChat} from "stream-chat";
 const apiKey = ENV.STREAM_API_KEY;
 const apiSecret = ENV.STREAM_SECRET_KEY
