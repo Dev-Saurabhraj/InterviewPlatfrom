@@ -8,6 +8,7 @@ import { connectDB } from "./lib/db.js";
 import {clerkMiddleware} from'@clerk/express'
 import { protectRoute } from "./middlewares/protectRoute.js";
 import chatRoutes from "./routes/chatRoutes.js";
+import sessionRoutes from "./routes/sessionRoutes.js"
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');
 const __dirname = path.resolve();
@@ -25,6 +26,7 @@ app.use(clerkMiddleware());
 app.use("/api/inngest", serve({client: inngest, functions}))
 
 app.use("/api/chat", chatRoutes);
+app.use("/api/sessions", sessionRoutes);
 
 app.get('/', (req, res) => {
 
