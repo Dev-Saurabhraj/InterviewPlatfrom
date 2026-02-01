@@ -9,8 +9,8 @@ if(!apiKey || !apiSecret){
 }
 
 
-export const chatClient = new StreamChat.getInstance(apiKey, apiSecret);// this is for chat feature
-export const streamClient = StreamClient(apiKey, apiSecret);// this will use for vedio calls 
+export const chatClient =  StreamChat.getInstance(apiKey, apiSecret);// this is for chat feature
+export const streamClient = new StreamClient(apiKey, apiSecret);// this will use for vedio calls 
 
 export const upsertStreamUser = async(userData) => {
     try {
